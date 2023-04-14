@@ -49,7 +49,7 @@ export default function Home() {
       d8 !== "" &&
       d9 !== ""
     ) {
-      setWinner("draw");
+      setWinner("-");
     }
   }, [d1, d2, d3, d4, d5, d6, d7, d8, d9]);
 
@@ -168,10 +168,14 @@ export default function Home() {
       </Head>
       <main className="flex flex-col items-center justify-center space-y-20 w-screen h-screen">
         <h1 className=" text-3xl font-semibold">TIC TAC TOE</h1>
-        <div className="grid grid-cols-3 w-64 h-64 md:w-[800px] md:h-[800px]">
+        <div className="grid grid-cols-3 w-64 h-64 md:w-[600px] md:h-[600px] relative">
+          <div className=" absolute w-1 md:w-2 h-64 md:h-[600px] bg-slate-300 rounded-full left-[83px] md:left-[200px]"></div>
+          <div className=" absolute w-1 md:w-2 h-64 md:h-[600px] bg-slate-300 rounded-full right-[83px] md:right-[200px]"></div>
+          <div className=" absolute h-1 md:h-2 w-64 md:w-[600px] bg-slate-300 rounded-full top-[83px] md:top-[195px]"></div>
+          <div className=" absolute h-1 md:h-2 w-64 md:w-[600px] bg-slate-300 rounded-full bottom-[83px] md:bottom-[195px]"></div>
           <div
             onClick={s1}
-            className=" w-auto h-auto  border md:border-4 border-black flex items-center justify-center"
+            className=" w-auto h-[83px] md:h-[200px] flex items-center justify-center"
           >
             {d1 !== "" && (
               <p
@@ -185,7 +189,7 @@ export default function Home() {
           </div>
           <div
             onClick={s2}
-            className=" w-auto h-auto border md:border-4 border-black flex items-center justify-center"
+            className=" w-auto h-[83px] md:h-[200px] flex items-center justify-center"
           >
             {d2 !== "" && (
               <p
@@ -199,7 +203,7 @@ export default function Home() {
           </div>
           <div
             onClick={s3}
-            className=" w-auto h-auto  border md:border-4 border-black flex items-center justify-center"
+            className=" w-auto h-[83px] md:h-[200px]   flex items-center justify-center"
           >
             {d3 !== "" && (
               <p
@@ -213,7 +217,7 @@ export default function Home() {
           </div>
           <div
             onClick={s4}
-            className=" w-auto h-auto border md:border-4 border-black flex items-center justify-center"
+            className=" w-auto h-[83px] md:h-[200px] flex items-center justify-center"
           >
             {d4 !== "" && (
               <p
@@ -227,7 +231,7 @@ export default function Home() {
           </div>
           <div
             onClick={s5}
-            className=" w-auto h-auto border md:border-4 border-black flex items-center justify-center"
+            className=" w-auto h-[83px] md:h-[200px] flex items-center justify-center"
           >
             {d5 !== "" && (
               <p
@@ -241,7 +245,7 @@ export default function Home() {
           </div>
           <div
             onClick={s6}
-            className=" w-auto h-auto border md:border-4 border-black flex items-center justify-center"
+            className=" w-auto h-[83px] md:h-[200px] flex items-center justify-center"
           >
             {d6 !== "" && (
               <p
@@ -255,7 +259,7 @@ export default function Home() {
           </div>
           <div
             onClick={s7}
-            className=" w-auto h-auto border md:border-4 border-black flex items-center justify-center"
+            className=" w-auto h-[83px] md:h-[200px] flex items-center justify-center"
           >
             {d7 !== "" && (
               <p
@@ -269,7 +273,7 @@ export default function Home() {
           </div>
           <div
             onClick={s8}
-            className=" w-auto h-auto border md:border-4 border-black flex items-center justify-center"
+            className=" w-auto h-[83px] md:h-[200px] flex items-center justify-center"
           >
             {d8 !== "" && (
               <p
@@ -283,7 +287,7 @@ export default function Home() {
           </div>
           <div
             onClick={s9}
-            className=" w-auto h-auto border md:border-4 border-black flex items-center justify-center"
+            className=" w-auto h-[83px] md:h-[200px] flex items-center justify-center"
           >
             {d9 !== "" && (
               <p
@@ -298,9 +302,11 @@ export default function Home() {
         </div>
         {winner !== "" && (
           <div className="flex flex-col space-y-3 items-center">
-            <p className=" text-3xl">winner : {winner}</p>
+            <p className=" text-xl md:text-3xl">
+              {winner && `winner: ${winner}`}
+            </p>
             <button
-              className=" text-xl md:text-3xl bg-blue-500 rounded-lg md:rounded-xl pb-2 pt-1 md:pb-3 md:pt-2 px-5 text-white hover:bg-blue-600"
+              className=" text-md md:text-3xl bg-blue-500 rounded-lg md:rounded-xl pt-1 pb-2 px-4 md:pb-3 md:pt-2 md:px-5 text-white hover:bg-blue-600"
               onClick={resetGame}
             >
               retry
